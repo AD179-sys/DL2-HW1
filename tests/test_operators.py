@@ -108,6 +108,10 @@ def test_sigmoid(a: float) -> None:
     * It is  strictly increasing.
     """
     # TODO: Implement for Task 0.2.
+    assert (0.0 <= sigmoid(a) <= 1.0)
+    assert eq(1 - sigmoid(a), sigmoid(-a))
+    assert eq(sigmoid(0.0), 0.5)
+    return None
     raise NotImplementedError('Need to implement for Task 0.2')
 
 
@@ -116,6 +120,9 @@ def test_sigmoid(a: float) -> None:
 def test_transitive(a: float, b: float, c: float) -> None:
     "Test the transitive property of less-than (a < b and b < c implies a < c)"
     # TODO: Implement for Task 0.2.
+    is_done = (a < b and b < c)
+    assert ((is_done and a < c) or not is_done)
+    return None
     raise NotImplementedError('Need to implement for Task 0.2')
 
 
@@ -126,6 +133,9 @@ def test_symmetric() -> None:
     gives the same value regardless of the order of its input.
     """
     # TODO: Implement for Task 0.2.
+    for a, b in ((179.0, 57.0), (3.0, -1.0), (-6.0, 5.0), (0.0, -5.0), (0.0, 5.0)):
+        assert(eq(mul(a, b), mul(b, a)))
+    return None
     raise NotImplementedError('Need to implement for Task 0.2')
 
 
@@ -136,6 +146,10 @@ def test_distribute() -> None:
     :math:`z \times (x + y) = z \times x + z \times y`
     """
     # TODO: Implement for Task 0.2.
+
+    for x, y, z in ((1.0, 2.0, 3.0), (-5.0, 0.0, 5.0), (1.0, 1.0, 1.0)):
+        assert eq(mul(z, add(x, y)), add(mul(z, x), mul(z, y)))
+    return None
     raise NotImplementedError('Need to implement for Task 0.2')
 
 
@@ -145,6 +159,10 @@ def test_other() -> None:
     Write a test that ensures some other property holds for your functions.
     """
     # TODO: Implement for Task 0.2.
+    for x in (1.0, 2.0, 4.0, 8.0, 16.0):
+        assert eq(inv(inv(x)), x)
+    
+    return None
     raise NotImplementedError('Need to implement for Task 0.2')
 
 
@@ -174,6 +192,9 @@ def test_sum_distribute(ls1: List[float], ls2: List[float]) -> None:
     is the same as the sum of each element of `ls1` plus each element of `ls2`.
     """
     # TODO: Implement for Task 0.3.
+    assert(len(ls1) == len(ls2))
+    assert(eq(sum(ls1) + sum(ls2), sum([ls1[i] + ls2[i] for i in range(len(ls1))])))
+    return None
     raise NotImplementedError('Need to implement for Task 0.3')
 
 

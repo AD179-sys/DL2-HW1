@@ -113,4 +113,13 @@ if __name__ == "__main__":
     HIDDEN = 2
     RATE = 0.5
     data = minitorch.datasets["Simple"](PTS)
+
+
+    PTS = 50 #!!!
+    data = minitorch.datasets["Xor"](PTS)
+
+    HIDDEN = 10
+    RATE = 0.5
+
+
     ScalarTrain(HIDDEN).train(data, RATE)
